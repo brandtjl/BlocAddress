@@ -35,4 +35,10 @@ RSpec. describe AddressBook do
       end 
     end
 
+    describe '#remove_entry' do
+      it "removes entry from the address book" do
+        book = AddressBook.new
+        expect(book.entries.size).to eq(0)
+      end 
+    end 
 end
