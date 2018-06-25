@@ -1,5 +1,3 @@
-require_relative 'entry' #loads libray named entry.rb
-
 class AddressBook
   attr_reader :entries
 
