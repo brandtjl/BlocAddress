@@ -77,11 +77,11 @@ class MenuController
     end
 
     def view_an_entry
-      system "clear"
-      puts "Which Entry?"
+      print "Which Entry?"
       number = gets.to_i
       if number > address_book.entries.length
         puts "Sorry, there are only #{address_book.entries.length} entries!"
+        view_an_entry
       else
         puts address_book.entries[number-1]   # I did the '-1' as users may not realize the zero-index stuff?!?!
       end 
