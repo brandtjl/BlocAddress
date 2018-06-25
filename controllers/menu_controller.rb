@@ -11,7 +11,8 @@ class MenuController
         puts "2 - Create an entry"
         puts "3 - Search for an entry"
         puts "4 - Import entries from a CSV"
-        puts "5 - Exit"
+        puts "5 - View Entry Number n"
+        puts "6 - Exit"
         print "Enter your selection: "
 
         selection = gets.to_i
@@ -34,6 +35,10 @@ class MenuController
             read_csv
             main_menu
           when 5
+            system "clear"
+            view_an_entry
+            main_menu
+          when 6
             puts "Good-bye!"
             exit(0)
           else
@@ -70,6 +75,17 @@ class MenuController
         system "clear"
         puts "New entry created"
     end
+
+    def view_an_entry
+      system "clear"
+      puts "Which Entry?"
+      number = gets.to_i
+      if number > address_book.entries.length
+        puts "Sorry, there are only #{address_book.entries.length} entries!"
+      else
+        puts address_book.entries[number-1]   # I did the '-1' as users may not realize the zero-index stuff?!?!
+      end 
+    end 
 
     def search_entries
     end
