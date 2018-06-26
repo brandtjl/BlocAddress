@@ -8,6 +8,10 @@ class AddressBook
     @entries = []
   end
 
+  def nuke_em
+    entries.clear
+  end
+
   def add_entry(name,phone_number,email)
     index = 0
     entries.each do |entry|

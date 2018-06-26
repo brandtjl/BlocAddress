@@ -36,7 +36,7 @@ class MenuController
             main_menu
           when 5
             system "clear"
-            nuke_em
+            nuke_entries
             main_menu
           when 6
             puts "Good-bye!"
@@ -48,10 +48,11 @@ class MenuController
         end
     end
 
-    def nuke_em
+    def nuke_entries
       print "Are you sure you wanna nuke 'em?"
       answer = gets.chomp
-      answer == "yes" ? address_book.entries.clear : main_menu
+      address_book.nuke_em if answer == "yes"
+      main_menu
     end
 
     def view_all_entries

@@ -22,6 +22,14 @@ RSpec. describe AddressBook do
       expect(book.entries.size).to eq(0)
     end
   end 
+  
+  describe "#nuke_em" do
+    it "should delete all entries" do
+      book.import_from_csv("entries.csv")
+      book.nuke_em
+      expect(book.entries.size).to eq(0)
+    end 
+  end
 
     describe "#add_entry" do
       it "adds only one entry to the address book" do
